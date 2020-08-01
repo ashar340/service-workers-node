@@ -2,9 +2,13 @@
 
 var curFib = 0;
 
-// TODO
-
+self.postMessage("Hello from the web worker")
+self.onmessage = onMessage;
 // **********************************
+
+function onMessage(evt) {
+	console.log(`rec In Web Worker: ${evt.data}`);
+}
 
 function fib(n) {
 	if (n < 2) {
