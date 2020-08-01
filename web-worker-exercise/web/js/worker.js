@@ -6,8 +6,16 @@ self.postMessage("Hello from the web worker")
 self.onmessage = onMessage;
 // **********************************
 
+//When we get the message, we want to start our fib generation 
 function onMessage(evt) {
-	console.log(`rec In Web Worker: ${evt.data}`);
+	getNextFib();
+}
+
+function getNextFib() {
+	var fibNum = fib(curFib);
+	self.postMessage({ idx: curFib, fib: fibNum,});
+	curFib++;
+	setTimeout(getNextFib,0);
 }
 
 function fib(n) {
