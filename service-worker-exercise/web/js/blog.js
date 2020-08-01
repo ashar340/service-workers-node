@@ -60,10 +60,12 @@
 	}
 
 	function sendStatusUpdate(target) {
-		sendSWMessage({statusUpdate: {
-			isOnline,
-			isLoggedIn
-		}}, target);
+		sendSWMessage({
+			statusUpdate: {
+				isOnline,
+				isLoggedIn
+			}
+		}, target);
 	}
 
 	function sendSWMessage(msg, target) {
